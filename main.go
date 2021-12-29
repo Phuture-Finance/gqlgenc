@@ -6,10 +6,10 @@ import (
 	"os"
 
 	"github.com/99designs/gqlgen/api"
-	"github.com/let-run/gqlgenc/clientgen"
-	"github.com/let-run/gqlgenc/clientgenv2"
-	"github.com/let-run/gqlgenc/config"
-	"github.com/let-run/gqlgenc/generator"
+	"github.com/Phuture-Finance/gqlgenc/clientgen"
+	"github.com/Phuture-Finance/gqlgenc/clientgenv2"
+	"github.com/Phuture-Finance/gqlgenc/config"
+	"github.com/Phuture-Finance/gqlgenc/generator"
 )
 
 func main() {

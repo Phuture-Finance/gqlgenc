@@ -3,7 +3,7 @@ package clientgen
 import (
 	"fmt"
 
-	"github.com/let-run/gqlgenc/config"
+	"github.com/Phuture-Finance/gqlgenc/config"
 	"github.com/vektah/gqlparser/v2/ast"
 	"github.com/vektah/gqlparser/v2/parser"
 	"github.com/vektah/gqlparser/v2/validator"

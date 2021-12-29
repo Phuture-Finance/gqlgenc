@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	"github.com/99designs/gqlgen/codegen/config"
-	"github.com/let-run/gqlgenc/client"
-	"github.com/let-run/gqlgenc/introspection"
+	"github.com/Phuture-Finance/gqlgenc/client"
+	"github.com/Phuture-Finance/gqlgenc/introspection"
 	"github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 	"github.com/vektah/gqlparser/v2/validator"

@@ -90,7 +90,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/let-run/gqlgenc/clientgen"
+	"github.com/Phuture-Finance/gqlgenc/clientgen"
 
 	"github.com/99designs/gqlgen/api"
 	"github.com/99designs/gqlgen/codegen/config"
