@@ -35,6 +35,11 @@ type {{ .Query.Name | go }} {{ .Query.Type | ref }}
 
 {{- range $name, $element := .StructSources }}
 	type {{ .Name }} {{ .Type | ref }}
+
+{{- range $n, $el := .Vars }}
+	func (s *{{ $element.Name }}) Get{{ .Name }}() {{ .Type | ref }} { return s.{{ .Name }} }
+{{- end}}
+
 {{- end}}
 
 {{- range $name, $element := .OperationResponse }}

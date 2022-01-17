@@ -68,6 +68,7 @@ func (rs ResponseFieldList) IsStructType() bool {
 type StructSource struct {
 	Name string
 	Type types.Type
+	Vars []*types.Var
 }
 
 type SourceGenerator struct {
@@ -169,10 +170,18 @@ func (r *SourceGenerator) NewResponseField(selection ast.Selection, typeName str
 			baseType = fieldsResponseFields[0].Type
 		case fieldsResponseFields.IsStructType():
 			structType := fieldsResponseFields.StructType()
+
+			var vars []*types.Var
+			for j := 0; j < structType.NumFields(); j++ {
+				vars = append(vars, structType.Field(j))
+			}
+
 			r.StructSources = append(r.StructSources, &StructSource{
 				Name: typeName,
 				Type: structType,
+				Vars: vars,
 			})
+
 			baseType = types.NewNamed(
 				types.NewTypeName(0, r.client.Pkg(), typeName, nil),
 				structType,
@@ -220,6 +229,7 @@ func (r *SourceGenerator) NewResponseField(selection ast.Selection, typeName str
 		// InlineFragmentは子要素をそのままstructとしてもつので、ここで、構造体の型を作成します
 		name := NewLayerTypeName(typeName, templates.ToGo(selection.TypeCondition))
 		fieldsResponseFields := r.NewResponseFields(selection.SelectionSet, name)
+
 		structType := fieldsResponseFields.StructType()
 		r.StructSources = append(r.StructSources, &StructSource{
 			Name: name,
